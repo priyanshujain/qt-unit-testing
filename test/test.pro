@@ -7,7 +7,9 @@ TARGET = test
 INCLUDEPATH += .
 QT += testlib
 QT += core
-CONFIG += testcase qt
+QT += widgets
+
+CONFIG += testcase
 
 # Input
-SOURCES += tutorial3.cpp
+SOURCES += tutorial4.cpp

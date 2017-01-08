@@ -12,10 +12,10 @@ MAKEFILE      = Makefile
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_TESTLIB_LIB -DQT_CORE_LIB -DQT_TESTCASE_BUILDDIR='"/home/priyanshu/kde/qt-unit-testing/test"'
-CFLAGS        = -pipe -O2 -march=x86-64 -mtune=generic -O2 -pipe -fstack-protector-strong -D_REENTRANT -Wall -W -fPIC $(DEFINES)
-CXXFLAGS      = -pipe -O2 -march=x86-64 -mtune=generic -O2 -pipe -fstack-protector-strong -D_REENTRANT -Wall -W -fPIC $(DEFINES)
-INCPATH       = -I. -I. -isystem /usr/include/qt -isystem /usr/include/qt/QtGui -isystem /usr/include/qt/QtTest -isystem /usr/include/qt/QtCore -I. -I/usr/lib/qt/mkspecs/linux-g++
+DEFINES       = -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_TESTLIB_LIB -DQT_CORE_LIB -DQT_TESTCASE_BUILDDIR='"/home/priyanshu/kde/qt-unit-testing/test"'
+CFLAGS        = -pipe -O2 -march=x86-64 -mtune=generic -O2 -pipe -fstack-protector-strong -Wall -W -D_REENTRANT -fPIC $(DEFINES)
+CXXFLAGS      = -pipe -O2 -march=x86-64 -mtune=generic -O2 -pipe -fstack-protector-strong -Wall -W -D_REENTRANT -fPIC $(DEFINES)
+INCPATH       = -I. -I. -isystem /usr/include/qt -isystem /usr/include/qt/QtWidgets -isystem /usr/include/qt/QtGui -isystem /usr/include/qt/QtTest -isystem /usr/include/qt/QtCore -I. -I/usr/lib/qt/mkspecs/linux-g++
 QMAKE         = /usr/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -36,7 +36,7 @@ DISTNAME      = test1.0.0
 DISTDIR = /home/priyanshu/kde/qt-unit-testing/test/.tmp/test1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-O1 -Wl,-O1,--sort-common,--as-needed,-z,relro
-LIBS          = $(SUBLIBS) -lQt5Gui -lQt5Test -lQt5Core -lGL -lpthread 
+LIBS          = $(SUBLIBS) -lQt5Widgets -lQt5Gui -lQt5Test -lQt5Core -lGL -lpthread 
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -48,8 +48,8 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = tutorial3.cpp 
-OBJECTS       = tutorial3.o
+SOURCES       = tutorial4.cpp 
+OBJECTS       = tutorial4.o
 DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/common/unix.conf \
 		/usr/lib/qt/mkspecs/common/linux.conf \
@@ -209,21 +209,22 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/features/default_pre.prf \
 		/usr/lib/qt/mkspecs/features/resolve_config.prf \
 		/usr/lib/qt/mkspecs/features/default_post.prf \
+		/usr/lib/qt/mkspecs/features/resolve_target.prf \
+		/usr/lib/qt/mkspecs/features/testcase.prf \
+		/usr/lib/qt/mkspecs/features/warn_on.prf \
 		/usr/lib/qt/mkspecs/features/qt.prf \
 		/usr/lib/qt/mkspecs/features/resources.prf \
 		/usr/lib/qt/mkspecs/features/moc.prf \
 		/usr/lib/qt/mkspecs/features/testlib_defines.prf \
 		/usr/lib/qt/mkspecs/features/unix/opengl.prf \
+		/usr/lib/qt/mkspecs/features/uic.prf \
 		/usr/lib/qt/mkspecs/features/unix/thread.prf \
-		/usr/lib/qt/mkspecs/features/resolve_target.prf \
-		/usr/lib/qt/mkspecs/features/testcase.prf \
-		/usr/lib/qt/mkspecs/features/warn_on.prf \
 		/usr/lib/qt/mkspecs/features/file_copies.prf \
 		/usr/lib/qt/mkspecs/features/testcase_targets.prf \
 		/usr/lib/qt/mkspecs/features/exceptions.prf \
 		/usr/lib/qt/mkspecs/features/yacc.prf \
 		/usr/lib/qt/mkspecs/features/lex.prf \
-		test.pro  tutorial3.cpp
+		test.pro  tutorial4.cpp
 QMAKE_TARGET  = test
 DESTDIR       = 
 TARGET        = test
@@ -394,21 +395,23 @@ Makefile: test.pro /usr/lib/qt/mkspecs/linux-g++/qmake.conf /usr/lib/qt/mkspecs/
 		/usr/lib/qt/mkspecs/features/default_pre.prf \
 		/usr/lib/qt/mkspecs/features/resolve_config.prf \
 		/usr/lib/qt/mkspecs/features/default_post.prf \
+		/usr/lib/qt/mkspecs/features/resolve_target.prf \
+		/usr/lib/qt/mkspecs/features/testcase.prf \
+		/usr/lib/qt/mkspecs/features/warn_on.prf \
 		/usr/lib/qt/mkspecs/features/qt.prf \
 		/usr/lib/qt/mkspecs/features/resources.prf \
 		/usr/lib/qt/mkspecs/features/moc.prf \
 		/usr/lib/qt/mkspecs/features/testlib_defines.prf \
 		/usr/lib/qt/mkspecs/features/unix/opengl.prf \
+		/usr/lib/qt/mkspecs/features/uic.prf \
 		/usr/lib/qt/mkspecs/features/unix/thread.prf \
-		/usr/lib/qt/mkspecs/features/resolve_target.prf \
-		/usr/lib/qt/mkspecs/features/testcase.prf \
-		/usr/lib/qt/mkspecs/features/warn_on.prf \
 		/usr/lib/qt/mkspecs/features/file_copies.prf \
 		/usr/lib/qt/mkspecs/features/testcase_targets.prf \
 		/usr/lib/qt/mkspecs/features/exceptions.prf \
 		/usr/lib/qt/mkspecs/features/yacc.prf \
 		/usr/lib/qt/mkspecs/features/lex.prf \
 		test.pro \
+		/usr/lib/libQt5Widgets.prl \
 		/usr/lib/libQt5Gui.prl \
 		/usr/lib/libQt5Test.prl \
 		/usr/lib/libQt5Core.prl
@@ -572,21 +575,23 @@ Makefile: test.pro /usr/lib/qt/mkspecs/linux-g++/qmake.conf /usr/lib/qt/mkspecs/
 /usr/lib/qt/mkspecs/features/default_pre.prf:
 /usr/lib/qt/mkspecs/features/resolve_config.prf:
 /usr/lib/qt/mkspecs/features/default_post.prf:
+/usr/lib/qt/mkspecs/features/resolve_target.prf:
+/usr/lib/qt/mkspecs/features/testcase.prf:
+/usr/lib/qt/mkspecs/features/warn_on.prf:
 /usr/lib/qt/mkspecs/features/qt.prf:
 /usr/lib/qt/mkspecs/features/resources.prf:
 /usr/lib/qt/mkspecs/features/moc.prf:
 /usr/lib/qt/mkspecs/features/testlib_defines.prf:
 /usr/lib/qt/mkspecs/features/unix/opengl.prf:
+/usr/lib/qt/mkspecs/features/uic.prf:
 /usr/lib/qt/mkspecs/features/unix/thread.prf:
-/usr/lib/qt/mkspecs/features/resolve_target.prf:
-/usr/lib/qt/mkspecs/features/testcase.prf:
-/usr/lib/qt/mkspecs/features/warn_on.prf:
 /usr/lib/qt/mkspecs/features/file_copies.prf:
 /usr/lib/qt/mkspecs/features/testcase_targets.prf:
 /usr/lib/qt/mkspecs/features/exceptions.prf:
 /usr/lib/qt/mkspecs/features/yacc.prf:
 /usr/lib/qt/mkspecs/features/lex.prf:
 test.pro:
+/usr/lib/libQt5Widgets.prl:
 /usr/lib/libQt5Gui.prl:
 /usr/lib/libQt5Test.prl:
 /usr/lib/libQt5Core.prl:
@@ -604,7 +609,7 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents tutorial3.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents tutorial4.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -620,12 +625,12 @@ distclean: clean
 
 ####### Sub-libraries
 
+check: first
+	/home/priyanshu/kde/qt-unit-testing/test/target_wrapper.sh $(TESTRUNNER) ./$(QMAKE_TARGET) $(TESTARGS)
+
 mocclean: compiler_moc_header_clean compiler_moc_source_clean
 
 mocables: compiler_moc_header_make_all compiler_moc_source_make_all
-
-check: first
-	/home/priyanshu/kde/qt-unit-testing/test/target_wrapper.sh $(TESTRUNNER) ./$(QMAKE_TARGET) $(TESTARGS)
 
 benchmark: first
 
@@ -633,13 +638,15 @@ compiler_rcc_make_all:
 compiler_rcc_clean:
 compiler_moc_header_make_all:
 compiler_moc_header_clean:
-compiler_moc_source_make_all: tutorial3.moc
+compiler_moc_source_make_all: tutorial4.moc
 compiler_moc_source_clean:
-	-$(DEL_FILE) tutorial3.moc
-tutorial3.moc: tutorial3.cpp \
+	-$(DEL_FILE) tutorial4.moc
+tutorial4.moc: tutorial4.cpp \
 		/usr/bin/moc
-	/usr/bin/moc $(DEFINES) -I/usr/lib/qt/mkspecs/linux-g++ -I/home/priyanshu/kde/qt-unit-testing/test -I/home/priyanshu/kde/qt-unit-testing/test -I/usr/include/qt -I/usr/include/qt/QtGui -I/usr/include/qt/QtTest -I/usr/include/qt/QtCore -I/usr/include/c++/6.2.1 -I/usr/include/c++/6.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/6.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/6.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/6.2.1/include-fixed -I/usr/include tutorial3.cpp -o tutorial3.moc
+	/usr/bin/moc $(DEFINES) -I/usr/lib/qt/mkspecs/linux-g++ -I/home/priyanshu/kde/qt-unit-testing/test -I/home/priyanshu/kde/qt-unit-testing/test -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtTest -I/usr/include/qt/QtCore -I/usr/include/c++/6.2.1 -I/usr/include/c++/6.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/6.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/6.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/6.2.1/include-fixed -I/usr/include tutorial4.cpp -o tutorial4.moc
 
+compiler_uic_make_all:
+compiler_uic_clean:
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
 compiler_yacc_impl_make_all:
@@ -650,8 +657,8 @@ compiler_clean: compiler_moc_source_clean
 
 ####### Compile
 
-tutorial3.o: tutorial3.cpp tutorial3.moc
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tutorial3.o tutorial3.cpp
+tutorial4.o: tutorial4.cpp tutorial4.moc
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tutorial4.o tutorial4.cpp
 
 ####### Install
 
